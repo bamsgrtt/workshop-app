@@ -10,11 +10,17 @@ return Application::configure(basePath: dirname(__DIR__))
         api: __DIR__.'/../routes/api.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
+        apiPrefix: '/api'
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
         $middleware->alias([
-         'admin' => \App\Http\Middleware\Admin::class,
+            'admin' => \App\Http\Middleware\Admin::class,
+        ]);
+
+        $middleware->appendToGroup('api', [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
