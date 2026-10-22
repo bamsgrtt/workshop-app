@@ -12,8 +12,16 @@ class Product extends Model
     protected $fillable = [
         'category_id',
         'name',
+        'slug',
+        'brand',
         'description',
         'price',
         'stock',
+        'image',
     ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

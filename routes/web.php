@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Acara17Controller;
-use App\Http\Controllers\Acara18Controller;
-use App\Http\Controllers\Acara19Controller;
+use App\Http\Controllers\Praktikum\Acara17\Acara17Controller;
+use App\Http\Controllers\Praktikum\Acara18\Acara18Controller;
+use App\Http\Controllers\Praktikum\Acara19\Acara19Controller;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Praktikum\Acara30\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,9 +36,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/active', [ProfileController::class, 'showProfile'])->name('user.active');
 });
 
-// Modul Praktikum
+// Modul Post dan Product
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+// Acara 29: Upload dan manipulasi gambar produk
+Route::get('/acara29/products', fn () => redirect()->route('acara29.products.create'));
+Route::get('/acara29/products/create', [ProductController::class, 'create'])->name('acara29.products.create');
+Route::post('/acara29/products', [ProductController::class, 'store'])->name('acara29.products.store');
+
+// Acara 30: Cetak invoice PDF
+Route::get('/orders/{order}/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
 
 // Otorisasi Resource Post (Acara 24)
 Route::middleware('auth')->group(function () {
@@ -49,16 +58,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
-Route::get('/form', [FormController::class, 'showForm'])->name('form.show');
-Route::post('/submit', [FormController::class, 'submitForm'])->name('form.submit');
-
+// Praktikum per Acara
+// Acara 17
 Route::get('/acara17', [Acara17Controller::class, 'index'])->name('acara17.index');
 Route::get('/acara17/delete/{id}', [Acara17Controller::class, 'deleteData'])->name('acara17.delete');
 
+// Acara 18
 Route::get('/acara18', [Acara18Controller::class, 'index'])->name('acara18.index');
 Route::get('/acara18/destroy/{id}', [Acara18Controller::class, 'destroy'])->name('acara18.destroy');
 
+// Acara 19
 Route::get('/acara19', [Acara19Controller::class, 'index'])->name('acara19.index');
 Route::get('/acara19/restore/{id}', [Acara19Controller::class, 'restoreData'])->name('acara19.restore');
+
+// Form
+Route::get('/form', [FormController::class, 'showForm'])->name('form.show');
+Route::post('/submit', [FormController::class, 'submitForm'])->name('form.submit');
 
 require __DIR__.'/auth.php';
