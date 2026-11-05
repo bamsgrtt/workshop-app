@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f1117">
-    <title>Tambah Produk — Acara 29</title>
+    <title>Tambah Produk â€” Acara 29</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
             line-height: 1.5;
         }
 
-        /* ── top nav ── */
+        /* â”€â”€ top nav â”€â”€ */
         nav {
             position: sticky; top: 0; z-index: 50;
             display: flex; align-items: center; gap: 12px;
@@ -60,10 +60,10 @@
         @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
         .nav-title { font-size: 14px; font-weight: 600; color: var(--muted); }
 
-        /* ── page shell ── */
+        /* â”€â”€ page shell â”€â”€ */
         .page { width: min(100% - 32px, 820px); margin: 0 auto; padding: 56px 0 80px; }
 
-        /* ── hero ── */
+        /* â”€â”€ hero â”€â”€ */
         .hero { margin-bottom: 36px; }
         .hero h1 {
             font-size: clamp(26px, 5vw, 38px);
@@ -75,7 +75,7 @@
         }
         .hero p { color: var(--muted); font-size: 14px; max-width: 520px; }
 
-        /* ── error banner ── */
+        /* â”€â”€ error banner â”€â”€ */
         .alert {
             display: flex; gap: 12px; align-items: flex-start;
             margin-bottom: 24px; padding: 14px 16px;
@@ -87,7 +87,7 @@
         .alert ul { padding-left: 16px; }
         .alert li + li { margin-top: 4px; }
 
-        /* ── card ── */
+        /* â”€â”€ card â”€â”€ */
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -112,11 +112,11 @@
         .card-header p { font-size: 12px; color: var(--muted); }
         .card-body { padding: clamp(20px, 4vw, 32px); }
 
-        /* ── form grid ── */
+        /* â”€â”€ form grid â”€â”€ */
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .col-span-2 { grid-column: 1 / -1; }
 
-        /* ── field ── */
+        /* â”€â”€ field â”€â”€ */
         .field { display: flex; flex-direction: column; gap: 7px; }
         .field label { font-size: 13px; font-weight: 500; color: #a8b4cc; }
         .badge-opt {
@@ -145,7 +145,7 @@
         select option { background: var(--surface2); }
         textarea { min-height: 110px; resize: vertical; }
 
-        /* ── file upload zone ── */
+        /* â”€â”€ file upload zone â”€â”€ */
         .upload-zone {
             position: relative;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -179,7 +179,7 @@
         }
         .remove-img:hover { background: var(--danger); }
 
-        /* ── divider ── */
+        /* â”€â”€ divider â”€â”€ */
         .divider {
             grid-column: 1 / -1;
             display: flex; align-items: center; gap: 14px;
@@ -188,7 +188,7 @@
         }
         .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        /* ── actions ── */
+        /* â”€â”€ actions â”€â”€ */
         .actions {
             display: flex; justify-content: flex-end; align-items: center; gap: 12px;
             padding: 20px 28px;
@@ -234,12 +234,12 @@
 
         <div class="hero">
             <h1>Tambah produk baru</h1>
-            <p>Lengkapi informasi produk dan unggah gambar. Gambar diproses otomatis menjadi <strong>800 × 800 px</strong> menggunakan Intervention Image.</p>
+            <p>Lengkapi informasi produk dan unggah gambar. Gambar diproses otomatis menjadi <strong>800 Ã— 800 px</strong> menggunakan Intervention Image.</p>
         </div>
 
         @if ($errors->any())
             <div class="alert" role="alert" aria-live="polite">
-                <span class="alert-icon">⚠</span>
+                <span class="alert-icon">âš </span>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -250,7 +250,7 @@
 
         @if (session('success'))
             <div class="alert" style="border-color:rgb(52 211 153/.30);background:rgb(52 211 153/.08);color:#34d399" role="status">
-                <span class="alert-icon">✓</span>
+                <span class="alert-icon">âœ“</span>
                 <span>{{ session('success') }}</span>
             </div>
         @endif
@@ -260,7 +260,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon">📦</div>
+                    <div class="card-icon">ðŸ“¦</div>
                     <div>
                         <h2>Informasi produk</h2>
                         <p>Data utama yang ditampilkan di halaman produk</p>
@@ -278,7 +278,7 @@
                         <div class="field">
                             <label for="category_id">Kategori</label>
                             <select id="category_id" name="category_id" required>
-                                <option value="">Pilih kategori…</option>
+                                <option value="">Pilih kategoriâ€¦</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
                                         @selected(old('category_id') == $category->id)>
@@ -315,7 +315,7 @@
                         <div class="col-span-2 field">
                             <label for="description">Deskripsi <span class="badge-opt">opsional</span></label>
                             <textarea id="description" name="description"
-                                      placeholder="Tambahkan detail, keunggulan, atau catatan produk…">{{ old('description') }}</textarea>
+                                      placeholder="Tambahkan detail, keunggulan, atau catatan produkâ€¦">{{ old('description') }}</textarea>
                         </div>
 
                         <div class="col-span-2 divider">Gambar produk</div>
@@ -325,16 +325,16 @@
 
                             <div id="preview-wrap">
                                 <img id="preview-img" src="" alt="Preview">
-                                <button type="button" class="remove-img" id="remove-img" title="Hapus gambar">✕</button>
+                                <button type="button" class="remove-img" id="remove-img" title="Hapus gambar">âœ•</button>
                             </div>
 
                             <div class="upload-zone" id="upload-zone">
                                 <input id="image" name="image" type="file"
                                        accept="image/jpeg,image/png,image/webp"
                                        aria-label="Unggah gambar produk">
-                                <span class="upload-icon">🖼</span>
+                                <span class="upload-icon">ðŸ–¼</span>
                                 <span class="upload-label"><span>Klik untuk memilih</span> atau seret gambar ke sini</span>
-                                <span class="upload-hint">JPG, PNG, WebP · Maks 2 MB · Output: 800 × 800 px</span>
+                                <span class="upload-hint">JPG, PNG, WebP Â· Maks 2 MB Â· Output: 800 Ã— 800 px</span>
                             </div>
                         </div>
 

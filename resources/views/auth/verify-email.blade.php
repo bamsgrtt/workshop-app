@@ -1,8 +1,8 @@
-@if (session('message'))
-    <p>{{ session('message') }}</p>
+﻿@if (session('status') === 'verification-link-sent' || session('message'))
+    <p>Link verifikasi dikirim ulang!</p>
 @endif
 
-<form method="POST" action="{{ route('verification.resend') }}">
+<form method="POST" action="{{ route('verification.send') }}">
     @csrf
     <button type="submit">Resend Verification Email</button>
 </form>
