@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f1117">
-    <title>Katalog Produk — eLEKTRONIK</title>
+    <title>Katalog Produk â€” eLEKTRONIK</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
             line-height: 1.5;
         }
 
-        /* ── nav ── */
+        /* â”€â”€ nav â”€â”€ */
         nav {
             position: sticky; top: 0; z-index: 50;
             display: flex; align-items: center; justify-content: space-between;
@@ -60,10 +60,10 @@
         }
         .btn-add:hover { background: var(--accent-h); transform: translateY(-1px); }
 
-        /* ── page ── */
+        /* â”€â”€ page â”€â”€ */
         .page { width: min(100% - 32px, 1200px); margin: 0 auto; padding: 52px 0 80px; }
 
-        /* ── hero ── */
+        /* â”€â”€ hero â”€â”€ */
         .hero { margin-bottom: 40px; }
         .eyebrow {
             display: inline-flex; align-items: center; gap: 6px;
@@ -84,7 +84,7 @@
         }
         .hero p { color: var(--muted); font-size: 14px; max-width: 500px; }
 
-        /* ── empty state ── */
+        /* â”€â”€ empty state â”€â”€ */
         .empty {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             gap: 16px; padding: 80px 24px;
@@ -95,7 +95,7 @@
         .empty h3 { font-size: 18px; font-weight: 600; color: var(--text); }
         .empty p { font-size: 14px; max-width: 320px; }
 
-        /* ── grid of cards ── */
+        /* â”€â”€ grid of cards â”€â”€ */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -220,7 +220,7 @@
 
         @if ($products->isEmpty())
             <div class="empty">
-                <div class="empty-icon">📦</div>
+                <div class="empty-icon">ðŸ“¦</div>
                 <h3>Belum ada produk</h3>
                 <p>Tambahkan produk pertama Anda melalui tombol di atas.</p>
                 <a href="{{ route('acara29.products.create') }}" class="btn-add">+ Tambah produk</a>
@@ -240,7 +240,7 @@
                                 <img src="{{ asset('storage/' . $product->image) }}"
                                      alt="{{ $product->name }}" loading="lazy">
                             @else
-                                <div class="card-img-placeholder">💻</div>
+                                <div class="card-img-placeholder">ðŸ’»</div>
                             @endif
 
                             <span class="card-badge">{{ $product->brand }}</span>
@@ -267,22 +267,22 @@
                             @if ($product->processor || $product->ram || $product->storage || $product->display)
                                 <div class="specs">
                                     @if ($product->processor)
-                                        <span class="spec-chip"><span class="spec-ico">⚙️</span>{{ $product->processor }}</span>
+                                        <span class="spec-chip"><span class="spec-ico">âš™ï¸</span>{{ $product->processor }}</span>
                                     @endif
                                     @if ($product->ram)
-                                        <span class="spec-chip"><span class="spec-ico">🧠</span>{{ $product->ram }}</span>
+                                        <span class="spec-chip"><span class="spec-ico">ðŸ§ </span>{{ $product->ram }}</span>
                                     @endif
                                     @if ($product->storage)
-                                        <span class="spec-chip"><span class="spec-ico">💾</span>{{ $product->storage }}</span>
+                                        <span class="spec-chip"><span class="spec-ico">ðŸ’¾</span>{{ $product->storage }}</span>
                                     @endif
                                     @if ($product->display)
-                                        <span class="spec-chip"><span class="spec-ico">🖥</span>{{ $product->display }}</span>
+                                        <span class="spec-chip"><span class="spec-ico">ðŸ–¥</span>{{ $product->display }}</span>
                                     @endif
                                     @if ($product->graphics)
-                                        <span class="spec-chip"><span class="spec-ico">🎮</span>{{ $product->graphics }}</span>
+                                        <span class="spec-chip"><span class="spec-ico">ðŸŽ®</span>{{ $product->graphics }}</span>
                                     @endif
                                     @if ($product->battery)
-                                        <span class="spec-chip"><span class="spec-ico">🔋</span>{{ $product->battery }}</span>
+                                        <span class="spec-chip"><span class="spec-ico">ðŸ”‹</span>{{ $product->battery }}</span>
                                     @endif
                                 </div>
                             @endif
